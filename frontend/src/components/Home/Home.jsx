@@ -30,7 +30,8 @@ export default function Home() {
       </Button> &nbsp;
       <Button variant="primary" onClick={()=>{
         if(window.confirm("Do you really want to logout")){
-          
+          localStorage.removeItem('userInfo')
+        window.location.href ='/'}
         }
         }>
         Logout
