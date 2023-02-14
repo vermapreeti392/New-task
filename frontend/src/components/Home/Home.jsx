@@ -29,8 +29,10 @@ export default function Home() {
         Home
       </Button> &nbsp;
       <Button variant="primary" onClick={()=>{
-        localStorage.removeItem('userInfo')
-        window.location.href ='/'}}>
+        if(window.confirm("Do you really want to logout")){
+          
+        }
+        }>
         Logout
       </Button>
       <Offcanvas show={show} onHide={handleClose}>
