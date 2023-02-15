@@ -8,7 +8,4 @@ getConnection();
 app.use(cors());
 app.use(express.json());
 app.use(addEmployee);
-// app.get('/', (req,res)=>{
-//     res.send("hello");
-// })
 app.listen(PORT, ()=>console.log("server is running at 5000"));

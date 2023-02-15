@@ -1,57 +1,46 @@
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import {useDispatch } from 'react-redux';
 import { postEmployees } from '../../action/EmployeeAction';
 export default function AddEmployee() {
-    const navigate = useNavigate();
+    
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [city, setCity] = useState("");
-    const [zipcode, setZipcode] = useState('');
-    const postEmpState = useSelector((state)=>state.postEmployeeReducer);
-    const {success, error} = postEmpState;
+    const [zipcode, setZipcode] = useState('');    
     const dispatch = useDispatch();
     const addEmployee = (e)=>{
-        e.preventDefault();
-        // console.log(name,email,city,zipcode);
+        e.preventDefault();        
         const emp = {name, email, city, zipcode}
         dispatch(postEmployees(emp));
         setName('')
         setEmail('')
         setCity('')
-        setZipcode('')
-        navigate('/')
+        setZipcode('')        
+        window.location.href = "/";      
     }
-    return (        
-        <Container>
-            {success && <h6>Successfully inserted</h6>}
-            {error && <h6>Error</h6>}
-            <Form onSubmit={addEmployee}>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter name" onChange={(e) => { setName(e.target.value) }} value={name} />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email"  onChange={(e) => { setEmail(e.target.value) }} value={email}/>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control type="text" placeholder="city" onChange={(e) => { setCity(e.target.value) }} value={city}/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicZipcode">
-                    <Form.Label>Zipcode</Form.Label>
-                    <Form.Control type="text" placeholder="Enter zipcode" onChange={(e) => { setZipcode(e.target.value) }} value={zipcode}/>                
-                </Form.Group>                
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-        </Container>
+    return (
+       <div className='container-signup'>
+            <form action="" className='signup-form' onSubmit={addEmployee}>
+            <div className='inp'>
+                <label htmlFor="name">Name</label>
+                <input type="name" className='name input' placeholder="Enter name" onChange={(e) => { setName(e.target.value) }} value={name} />
+            </div>
+            <div className='inp'>
+                <label htmlFor="email">Email</label>
+                <input type="email" className='email input' placeholder="Enter email" onChange={(e) => { setEmail(e.target.value) }} value={email} />
+            </div>
+            <div className='inp'>
+                <label htmlFor="City">City</label>
+                <input type="city" className='password input' placeholder="city" onChange={(e) => { setCity(e.target.value) }} value={city} />
+            </div>
+            <div className='inp'>
+                <label htmlFor="Zipcode">Zipcode</label>
+                <input type="zipcode" className='password input' placeholder="Zipcode" onChange={(e) => { setZipcode(e.target.value) }} value={zipcode} />
+            </div>
+            <div className='inp'>
+            <button className='signup input' type="submit">Submit</button>
+            </div>
+            </form>
+       </div>
     )
 }
