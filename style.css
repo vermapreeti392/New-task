@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+
+    background-color: skyblue;
+    height: 100vh;
+    text-align: center;
+
+}
+.container h1{
+    padding: 50px;
+}
+
+.main{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-around; */
+    gap: 10px;
+
+}
+.left-div{
+    background-color: white;
+    height: 300px;
+    width: 350px;
+}
+.left-div h2{
+    background-color: black;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 10px;
+}
+.left-div div{
+margin: 10px;
+}
+
+.right-div{
+    background-color: white;
+    height: 300px;
+    width: 350px;
+}
+.right-div h3{
+    background-color: black;
+    color: white;
+}
+.right-div p{
+    padding: 20px;
+    text-align: left;
+}
